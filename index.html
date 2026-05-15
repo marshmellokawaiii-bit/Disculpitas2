@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¿Me perdonas?</title>
+
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background-color:#ffd6e7; /* rosado pastel */
+      font-family: Arial, sans-serif;
+    }
+
+    .contenedor{
+      text-align:center;
+    }
+
+    h1{
+      color:black;
+      font-size:50px;
+      margin-bottom:20px;
+    }
+
+    img{
+      width:300px;
+      max-width:90%;
+      border-radius:20px;
+      margin-bottom:25px;
+    }
+
+    .botones{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+    }
+
+    button{
+      border:none;
+      padding:15px 35px;
+      font-size:20px;
+      color:white;
+      border-radius:12px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .si{
+      background-color:green;
+    }
+
+    .si:hover{
+      transform:scale(1.1);
+    }
+
+    .no{
+      background-color:red;
+    }
+
+    .no:hover{
+      transform:scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contenedor">
+
+    <h1>¿Me perdonas?</h1>
+
+    <!-- CAMBIA EL LINK DE ABAJO POR TU IMAGEN -->
+    <img src="https://i.pinimg.com/736x/c8/a1/c8/c8a1c8c8a2b085e1e8d3c574c5672bfe.jpg" alt="imagen bonita">
+
+    <div class="botones">
+      <button class="si">Sí</button>
+      <button class="no">No</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
