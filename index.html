@@ -1,98 +1,214 @@
-<script>
+<!DOCTYPE html>
+<html lang="es">
 
-  // CONTADOR DE ETAPAS DEL BOTÓN NO
-  let etapaNo = 0;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  function cambiarNo(){
+  <title>¿Me perdonas?</title>
 
-    const botonNo = document.querySelector(".no");
-    const imagen = document.getElementById("imagen");
+  <style>
 
-    // BORRAR MENSAJE "Yeiiii 😸"
-    document.getElementById("mensaje").innerText = "";
+    body{
+      margin:0;
+      padding:0;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background-color:#ffd6e7;
+      font-family: Arial, sans-serif;
+    }
 
-    etapaNo++;
+    .contenedor{
+      text-align:center;
+    }
 
-    // =========================================
-    // PRIMER CLICK EN "NO"
-    // =========================================
-    if(etapaNo == 1){
+    h1{
+      color:black;
+      font-size:50px;
+      margin-bottom:20px;
+    }
 
-      botonNo.innerText = "¿Deberitas?";
+    img{
+      width:300px;
+      max-width:90%;
+      border-radius:20px;
+      margin-bottom:25px;
+      transition:0.3s;
+    }
 
-      imagen.src =
-      "https://i.pinimg.com/736x/e6/90/45/e69045e8f3cec44ae8ee422eac3960d1.jpg";
+    .botones{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+    }
 
-      // TAMAÑO NORMAL
-      imagen.style.width = "300px";
+    button{
+      border:none;
+      padding:15px 35px;
+      font-size:20px;
+      color:white;
+      border-radius:12px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .si{
+      background-color:green;
+    }
+
+    .si:hover{
+      transform:scale(1.1);
+    }
+
+    .no{
+      background-color:red;
+    }
+
+    .no:hover{
+      transform:scale(1.1);
+    }
+
+    #mensaje{
+      margin-top:20px;
+      font-size:35px;
+      color:black;
+      font-weight:bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="contenedor">
+
+    <!-- TEXTO PRINCIPAL -->
+    <h1 id="pregunta">¿Me perdonas?</h1>
+
+    <!-- IMAGEN -->
+    <img
+      id="imagen"
+      src="https://i.pinimg.com/736x/c8/a1/c8/c8a1c8c8a2b085e1e8d3c574c5672bfe.jpg"
+      alt="imagen bonita"
+    >
+
+    <!-- BOTONES -->
+    <div class="botones">
+
+      <button class="si" onclick="presionoSi()">
+        Sí
+      </button>
+
+      <button class="no" onclick="cambiarNo()">
+        No
+      </button>
+
+    </div>
+
+    <!-- MENSAJE -->
+    <div id="mensaje"></div>
+
+  </div>
+
+  <script>
+
+    // CONTADOR DE ETAPAS DEL BOTÓN NO
+    let etapaNo = 0;
+
+    function cambiarNo(){
+
+      const botonNo = document.querySelector(".no");
+      const imagen = document.getElementById("imagen");
+
+      // BORRAR MENSAJE DEL SÍ
+      document.getElementById("mensaje").innerText = "";
+
+      etapaNo++;
+
+      // =====================================
+      // PRIMER CLICK EN NO
+      // =====================================
+      if(etapaNo == 1){
+
+        botonNo.innerText = "¿Deberitas?";
+
+        imagen.src =
+        "https://i.pinimg.com/736x/e6/90/45/e69045e8f3cec44ae8ee422eac3960d1.jpg";
+
+        imagen.style.width = "300px";
+
+      }
+
+      // =====================================
+      // SEGUNDO CLICK EN NO
+      // =====================================
+      else if(etapaNo == 2){
+
+        botonNo.innerText = "¿En verdad harías esa diablura?";
+
+        imagen.src =
+        "https://i.pinimg.com/1200x/58/20/3d/58203d6bdcbfed932a7adacb25ee1324.jpg";
+
+        imagen.style.width = "300px";
+
+      }
+
+      // =====================================
+      // TERCER CLICK EN NO
+      // =====================================
+      else if(etapaNo == 3){
+
+        botonNo.innerText = "Es enserio?";
+
+        imagen.src =
+        "https://i.ytimg.com/vi/lyyoXRPtoB8/mqdefault.jpg";
+
+        imagen.style.width = "300px";
+
+      }
+
+      // =====================================
+      // CUARTO CLICK EN NO
+      // =====================================
+      else if(etapaNo == 4){
+
+        botonNo.innerText = "Esta bien ntp";
+
+        imagen.src =
+        "https://pbs.twimg.com/media/ExDdUThVIAMLTx5.jpg";
+
+        imagen.style.width = "300px";
+
+      }
 
     }
 
-    // =========================================
-    // SEGUNDO CLICK EN "NO"
-    // =========================================
-    else if(etapaNo == 2){
+    // =====================================
+    // CUANDO PRESIONAN SÍ
+    // =====================================
+    function presionoSi(){
 
-      botonNo.innerText = "¿En verdad harías esa diablura?";
+      const imagen = document.getElementById("imagen");
 
+      // DESAPARECER PREGUNTA
+      document.getElementById("pregunta").innerText = "";
+
+      // CAMBIAR IMAGEN
       imagen.src =
-      "https://i.pinimg.com/1200x/58/20/3d/58203d6bdcbfed932a7adacb25ee1324.jpg";
+      "https://media1.tenor.com/m/YP0XYJlUqKIAAAAd/pibble-cute-dog.gif";
 
-      imagen.style.width = "300px";
+      // IMAGEN MÁS GRANDE
+      imagen.style.width = "450px";
+
+      // MENSAJE FINAL
+      document.getElementById("mensaje").innerText =
+      "Yeiiii 😸";
 
     }
 
-    // =========================================
-    // TERCER CLICK EN "NO"
-    // =========================================
-    else if(etapaNo == 3){
+  </script>
 
-      botonNo.innerText = "Es enserio?";
-
-      imagen.src =
-      "https://i.ytimg.com/vi/lyyoXRPtoB8/mqdefault.jpg";
-
-      imagen.style.width = "300px";
-
-    }
-
-    // =========================================
-    // CUARTO CLICK EN "NO"
-    // =========================================
-    else if(etapaNo == 4){
-
-      botonNo.innerText = "Esta bien ntp";
-
-      imagen.src =
-      "https://pbs.twimg.com/media/ExDdUThVIAMLTx5.jpg";
-
-      imagen.style.width = "300px";
-
-    }
-
-  }
-
-  // =========================================
-  // CUANDO PRESIONAN "SÍ"
-  // =========================================
-  function presionoSi(){
-
-    const imagen = document.getElementById("imagen");
-
-    // DESAPARECER EL TÍTULO
-    document.querySelector("h1").innerText = "";
-
-    // CAMBIAR IMAGEN
-    imagen.src =
-    "https://media1.tenor.com/m/YP0XYJlUqKIAAAAd/pibble-cute-dog.gif";
-
-    // IMAGEN MÁS GRANDE
-    imagen.style.width = "450px";
-
-    // MENSAJE FINAL
-    document.getElementById("mensaje").innerText =
-    "Yeiiii";
-
-  }
-
-</script>
+</body>
+</html>
