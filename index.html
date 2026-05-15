@@ -6,6 +6,7 @@
   <title>¿Me perdonas?</title>
 
   <style>
+
     body{
       margin:0;
       padding:0;
@@ -13,7 +14,7 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      background-color:#ffd6e7; /* rosado pastel */
+      background-color:#ffd6e7;
       font-family: Arial, sans-serif;
     }
 
@@ -65,6 +66,14 @@
     .no:hover{
       transform:scale(1.1);
     }
+
+    #mensaje{
+      margin-top:20px;
+      font-size:35px;
+      color:black;
+      font-weight:bold;
+    }
+
   </style>
 </head>
 
@@ -72,17 +81,118 @@
 
   <div class="contenedor">
 
+    <!-- PREGUNTA PRINCIPAL -->
     <h1>¿Me perdonas?</h1>
 
-    <!-- CAMBIA EL LINK DE ABAJO POR TU IMAGEN -->
-    <img src="https://i.pinimg.com/736x/c8/a1/c8/c8a1c8c8a2b085e1e8d3c574c5672bfe.jpg" alt="imagen bonita">
+    <!-- IMAGEN PRINCIPAL -->
+    <!-- CAMBIA ESTE LINK -->
+    <img 
+      id="imagen"
+      src="https://i.pinimg.com/736x/c8/a1/c8/c8a1c8c8a2b085e1e8d3c574c5672bfe.jpg"
+      alt="imagen bonita"
+    >
 
     <div class="botones">
-      <button class="si">Sí</button>
-      <button class="no">No</button>
+
+      <!-- BOTÓN SÍ -->
+      <button class="si" onclick="presionoSi()">
+        Sí
+      </button>
+
+      <!-- BOTÓN NO -->
+      <button class="no" onclick="cambiarNo()">
+        No
+      </button>
+
     </div>
 
+    <!-- MENSAJE DE ABAJO -->
+    <div id="mensaje"></div>
+
   </div>
+
+  <script>
+
+    // CONTADOR DE ETAPAS DEL BOTÓN NO
+    let etapaNo = 0;
+
+    function cambiarNo(){
+
+      const botonNo = document.querySelector(".no");
+      const imagen = document.getElementById("imagen");
+
+      etapaNo++;
+
+      // =========================================
+      // PRIMER CLICK EN "NO"
+      // =========================================
+      if(etapaNo == 1){
+
+        // TEXTO DEL BOTÓN
+        botonNo.innerText = "¿Deberitas?";
+
+        // CAMBIAR IMAGEN
+        imagen.src = "PON_AQUI_LA_IMAGEN_1";
+
+      }
+
+      // =========================================
+      // SEGUNDO CLICK EN "NO"
+      // =========================================
+      else if(etapaNo == 2){
+
+        // TEXTO DEL BOTÓN
+        botonNo.innerText = "¿En verdad harías esa diablura?";
+
+        // CAMBIAR IMAGEN
+        imagen.src = "https://i.pinimg.com/1200x/58/20/3d/58203d6bdcbfed932a7adacb25ee1324.jpg";
+
+      }
+
+      // =========================================
+      // TERCER CLICK EN "NO"
+      // =========================================
+      else if(etapaNo == 3){
+
+        // TEXTO DEL BOTÓN
+        botonNo.innerText = "Es enserio?";
+
+        // CAMBIAR IMAGEN
+        imagen.src = "https://i.ytimg.com/vi/lyyoXRPtoB8/mqdefault.jpg";
+
+      }
+
+      // =========================================
+      // CUARTO CLICK EN "NO"
+      // =========================================
+      else if(etapaNo == 4){
+
+        // TEXTO DEL BOTÓN
+        botonNo.innerText = "Esta bien ntp";
+
+        // CAMBIAR IMAGEN
+        imagen.src = "https://pbs.twimg.com/media/ExDdUThVIAMLTx5.jpg";
+
+      }
+
+    }
+
+    // =========================================
+    // CUANDO PRESIONAN "SÍ"
+    // =========================================
+    function presionoSi(){
+
+      // CAMBIAR IMAGEN
+      document.getElementById("imagen").src =
+      "https://media1.tenor.com/m/YP0XYJlUqKIAAAAd/pibble-cute-dog.gif";
+
+      // MENSAJE FINAL
+      document.getElementById("mensaje").innerText =
+      "Yeiiii";
+
+    }
+
+  </script>
 
 </body>
 </html>
